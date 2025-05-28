@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  theme-1:
+    container_name: theme-1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT}:${PORT}"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=${PORT}
+      - NEXT_PUBLIC_NAME=Theme 1
+
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${PORT}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3 
+  theme-2:
+    container_name: theme-2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT}:${PORT}"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=${PORT}
+      - NEXT_PUBLIC_NAME=Theme 2
+
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${PORT}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3 
+  theme-3:
+    container_name: theme-3
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT}:${PORT}"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=${PORT}
+      - NEXT_PUBLIC_NAME=Theme 3
+
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${PORT}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3 
+
+     
